@@ -5,19 +5,7 @@ import IngredientList from './IngredientList';
 import ErrorModal from '../UI/ErrorModal';
 import Search from './Search';
 
-//reducer function is decoupled from the functional componenet
-const ingredientReducer = (currenIngredients, action) => {
-  switch (action.type) {
-    case 'SET':
-      return action.ingredients;
-    case 'ADD':
-      return [...currenIngredients, action.ingredient];
-    case 'DELETE':
-      return currenIngredients.filter(ing => ing.id !== action.id);
-    default:
-      throw new Error('Should not get there!')
-  }
-}
+
 const Ingredients = () => {
   /* const [userIngredients, dispatch] = useReducer(ingredientReducer, []) */
   const [userIngredients, setUserIngredients] = useState([]);
