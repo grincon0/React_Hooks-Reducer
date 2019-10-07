@@ -16,7 +16,7 @@ const Search = React.memo(props => {
       if (enteredFilter === inputRef.current.value) {
         const query = enteredFilter.length === 0 ? '' : `?orderBy="title"&equalTo="${enteredFilter}"`;
 
-        fetch('(SET-FIREBASE-DB-URL)/ingredients.json' + query)
+        fetch('https://react-hooks-update-8f1c3.firebaseio.com/ingredients.json' + query)
           .then(response => response.json())
           .then(responseData => {
             const loadedIngredients = [];
@@ -27,7 +27,8 @@ const Search = React.memo(props => {
                 amount: responseData[key].amount
               });
             }
-            console.log(loadedIngredients)
+            console.log(loadedIngredients);
+            //prop
             onLoadIngredients(loadedIngredients);
           })
       }
